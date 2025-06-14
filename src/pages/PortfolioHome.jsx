@@ -153,6 +153,11 @@ export default function PortfolioHome() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-xs text-gray-400 opacity-70">
+  Website developed by me through prompt engineering.
+</footer>
     </main>
   );
 }
