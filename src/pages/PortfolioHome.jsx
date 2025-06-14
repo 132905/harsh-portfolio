@@ -6,8 +6,14 @@ export default function PortfolioHome() {
   const [darkMode, setDarkMode] = useState(true);
   const [modalData, setModalData] = useState(null);
 
+  // ✅ Toggle Dark/Light Theme
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
   }, [darkMode]);
 
   const skills = [
@@ -39,48 +45,48 @@ export default function PortfolioHome() {
       tech: "Python, Langchain, Langgraph, OpenRouter.ai",
       description: "Built a foundational reactive conversational AI agent using Langchain & Langgraph.",
       role: "Architected interaction flow, agent design, and extensible tooling.",
-      github: "#",
+      github: "https://github.com/132905/langchain-langgraph-ai-agent",
     },
     {
       title: "No-Show Medical Appointments Analysis",
       tech: "Python, Pandas, NumPy, Jupyter",
       description: "EDA on 110k+ medical appointments to find patterns in no-show behavior.",
       role: "Cleaned, explored, and analyzed data, extracted actionable insights.",
-      github: "#",
+      github: "https://github.com/132905/medical-appointment-no-shows",
     },
     {
       title: "Global Socio-Economic Comparison Dashboard",
       tech: "Python, Power BI, Tableau",
       description: "Analyzed global socio-economic data and visualized insights in a dashboard.",
       role: "Data cleaning, visual prep, dashboard development.",
-      github: "#",
+      github: "https://github.com/132905/global-socioeconomic-dashboard",
     },
     {
       title: "Predictive Analytics for Customer Churn",
       tech: "Python, Scikit-learn, Pandas, Logistic Regression",
       description: "Built ML pipeline to predict customer churn, achieving 85% accuracy.",
       role: "Handled preprocessing, training, evaluation and deployment pipeline.",
-      github: "#",
+      github: "https://github.com/132905/customer-churn-prediction",
     },
     {
       title: "Deep Learning for Image Classification",
       tech: "TensorFlow, Keras, Python",
       description: "Achieved 98.7% accuracy on 70k+ images using a CNN.",
       role: "Model design, training optimization, performance tuning.",
-      github: "#",
+      github: "https://github.com/132905/image-classification-cnn",
     },
     {
       title: "Fall Detection of Parkinson’s Patients",
       tech: "Python, OpenCV, TensorFlow Lite, Mediapipe",
       description: "AI-powered real-time fall detection with 96.8% accuracy.",
       role: "Integrated Mediapipe + CNN on Raspberry Pi with real-time alerts.",
-      github: "#",
+      github: "https://github.com/132905/fall-detection-parkinsons",
     },
   ];
 
   return (
     <main className="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 font-sans">
-      {/* Theme Toggle */}
+      {/* Toggle Theme */}
       <div className="fixed top-4 right-4 z-50">
         <button
           className="p-2 bg-gray-200 dark:bg-gray-800 rounded-full"
@@ -90,7 +96,7 @@ export default function PortfolioHome() {
         </button>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center py-20 px-4">
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4"
@@ -114,18 +120,34 @@ export default function PortfolioHome() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning. With a solid foundation in Python and hands-on experience in various tools, I aim to build intelligent solutions that create impact. I enjoy translating complex problems into clean, scalable code and continuously strive to grow through new challenges.
+          I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning. With a solid foundation in Python and hands-on experience in various tools, I aim to build intelligent solutions that create impact.
         </motion.p>
+
+        {/* Scroll Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <button
+            onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}
+            className="bg-red-600 text-white px-4 py-2 rounded"
+          >
+            Go to Skills
+          </button>
+          <button
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            className="bg-red-600 text-white px-4 py-2 rounded"
+          >
+            Go to Projects
+          </button>
+        </div>
 
         {/* Contact */}
         <div className="flex gap-6 mt-8">
           <a href="mailto:harshmalashetti@gmail.com" className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full">
             <Mail className="h-5 w-5 text-white" />
           </a>
-          <a href="https://github.com/132905" target="_blank" className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full">
+          <a href="https://github.com/132905" target="_blank" className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full" rel="noopener noreferrer">
             <Github className="h-5 w-5 text-white" />
           </a>
-          <a href="https://linkedin.com/in/harsh-malashetti/" target="_blank" className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full">
+          <a href="https://linkedin.com/in/harsh-malashetti/" target="_blank" className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full" rel="noopener noreferrer">
             <Linkedin className="h-5 w-5 text-white" />
           </a>
           <a href="/Harsh_Malashetti_DS.pdf" download className="p-2 bg-gray-800 dark:bg-gray-700 rounded-full">
@@ -135,25 +157,11 @@ export default function PortfolioHome() {
       </section>
 
       {/* Skills */}
-      <section className="py-12 px-4 max-w-5xl mx-auto">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          Skills
-        </motion.h2>
+      <section id="skills" className="py-12 px-4 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8">Skills</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {skills.map(({ title, items }, i) => (
-            <motion.div
-              key={i}
-              className="bg-gray-100 dark:bg-gray-900 rounded-xl p-4 shadow"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i }}
-              viewport={{ once: true }}
-            >
+            <div key={i} className="bg-gray-100 dark:bg-gray-900 rounded-xl p-4 shadow">
               <h3 className="text-xl font-semibold text-red-500 mb-2">{title}</h3>
               <ul className="flex flex-wrap gap-2 text-sm text-gray-800 dark:text-gray-300">
                 {items.map((skill, idx) => (
@@ -162,31 +170,17 @@ export default function PortfolioHome() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Projects */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          Projects
-        </motion.h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section id="projects" className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-gray-100 dark:bg-gray-900 p-4 rounded-xl shadow"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 * idx }}
-              viewport={{ once: true }}
-            >
+            <div key={idx} className="bg-gray-100 dark:bg-gray-900 p-4 rounded-xl shadow">
               <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">{project.tech}</p>
               <button
@@ -195,7 +189,7 @@ export default function PortfolioHome() {
               >
                 View Details
               </button>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
