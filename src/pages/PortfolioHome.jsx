@@ -1,7 +1,4 @@
-
 import React from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { Button } from "../components/ui/button";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -34,31 +31,42 @@ export default function PortfolioHome() {
           I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning. With a solid foundation in Python and hands-on experience in various tools, I aim to build intelligent solutions that create impact. I enjoy translating complex problems into clean, scalable code and continuously strive to grow through new challenges.
         </motion.p>
         <div className="flex gap-6 mt-8">
-          <Button variant="outline" size="icon" asChild>
-            <a href="mailto:harshmalashetti@gmail.com">
-              <Mail className="h-5 w-5 text-white" />
-            </a>
-          </Button>
-          <Button variant="outline" size="icon" asChild>
-            <a href="https://github.com/132905" target="_blank" rel="noopener noreferrer">
-              <Github className="h-5 w-5 text-white" />
-            </a>
-          </Button>
-          <Button variant="outline" size="icon" asChild>
-            <a href="https://linkedin.com/in/harsh-malashetti/" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="h-5 w-5 text-white" />
-            </a>
-          </Button>
-          <Button variant="outline" size="icon" asChild>
-            <a href="/Harsh_Malashetti_DS.pdf" download>
-              <Download className="h-5 w-5 text-white" />
-            </a>
-          </Button>
+          <a
+            href="mailto:harshmalashetti@gmail.com"
+            className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition"
+          >
+            <Mail className="h-5 w-5 text-white" />
+          </a>
+          <a
+            href="https://github.com/132905"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition"
+          >
+            <Github className="h-5 w-5 text-white" />
+          </a>
+          <a
+            href="https://linkedin.com/in/harsh-malashetti/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition"
+          >
+            <Linkedin className="h-5 w-5 text-white" />
+          </a>
+          <a
+            href="/Harsh_Malashetti_DS.pdf"
+            download
+            className="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition"
+          >
+            <Download className="h-5 w-5 text-white" />
+          </a>
         </div>
       </section>
 
       <section className="bg-gray-950 py-16 px-4">
-        <h2 className="text-4xl font-semibold text-center mb-10 text-white">Skills</h2>
+        <h2 className="text-4xl font-semibold text-center mb-10 text-white">
+          Skills
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto text-center">
           {[
             "Python",
@@ -78,9 +86,12 @@ export default function PortfolioHome() {
             "Power BI",
             "Tableau"
           ].map((skill, idx) => (
-            <Card key={idx} className="bg-gray-800 text-white shadow-md">
-              <CardContent className="p-4 font-medium">{skill}</CardContent>
-            </Card>
+            <div
+              key={idx}
+              className="bg-gray-800 text-white shadow-md p-4 font-medium rounded-xl"
+            >
+              {skill}
+            </div>
           ))}
         </div>
       </section>
