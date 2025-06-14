@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export default function PortfolioHome() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900 text-white font-sans">
+      {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-20 px-4">
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4"
@@ -28,8 +29,15 @@ export default function PortfolioHome() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning. With a solid foundation in Python and hands-on experience in various tools, I aim to build intelligent solutions that create impact. I enjoy translating complex problems into clean, scalable code and continuously strive to grow through new challenges.
+          I'm a passionate and self-driven technologist exploring the world of
+          Artificial Intelligence and Machine Learning. With a solid foundation
+          in Python and hands-on experience in various tools, I aim to build
+          intelligent solutions that create impact. I enjoy translating complex
+          problems into clean, scalable code and continuously strive to grow
+          through new challenges.
         </motion.p>
+
+        {/* Contact Icons */}
         <div className="flex gap-6 mt-8">
           <a
             href="mailto:harshmalashetti@gmail.com"
@@ -63,34 +71,37 @@ export default function PortfolioHome() {
         </div>
       </section>
 
+      {/* Skills Section */}
       <section className="bg-gray-950 py-16 px-4">
         <h2 className="text-4xl font-semibold text-center mb-10 text-white">
           Skills
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto space-y-6">
           {[
-            "Python",
-            "Java",
-            "TensorFlow",
-            "Scikit-learn",
-            "Pandas",
-            "NumPy",
-            "Matplotlib",
-            "Seaborn",
-            "PyTorch",
-            "OpenCV",
-            "SQL",
-            "Git",
-            "Docker",
-            "VS Code",
-            "Power BI",
-            "Tableau"
-          ].map((skill, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-800 text-white shadow-md p-4 font-medium rounded-xl"
-            >
-              {skill}
+            ["Languages", ["Python", "Java", "SQL"]],
+            [
+              "Libraries",
+              ["TensorFlow", "Scikit-learn", "NumPy", "Pandas", "PyTorch", "OpenCV"],
+            ],
+            ["ML / AI", ["CNN", "NLP", "Generative AI", "Classification", "Clustering"]],
+            ["Tools", ["VS Code", "Git", "Docker", "Jupyter Notebook"]],
+            [
+              "Analytics & Visualization",
+              ["Power BI", "Tableau", "Matplotlib", "Seaborn"],
+            ],
+          ].map(([heading, items], i) => (
+            <div key={i}>
+              <h3 className="text-2xl font-bold text-red-400 mb-2">{heading}</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {items.map((skill, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-gray-800 text-white shadow-md p-3 text-center rounded"
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
