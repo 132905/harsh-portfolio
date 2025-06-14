@@ -128,20 +128,24 @@ export default function PortfolioHome() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
-        <div className="grid grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <div key={idx} className="bg-gray-100 p-4 rounded-xl shadow">
-              <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.tech}</p>
-              <button onClick={() => setModalData(project)} className="mt-3 text-sm text-red-600 hover:underline">
-                View Details
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
+<section id="projects" className="py-16 px-4 max-w-6xl mx-auto">
+  <h2 className="text-3xl font-bold text-center mb-10 text-white">Projects</h2>
+  <div className="grid grid-cols-3 gap-6">
+    {projects.map((project, idx) => (
+      <div key={idx} className="bg-gray-900 p-4 rounded-xl shadow text-white">
+        <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+        <p className="text-sm text-gray-400">{project.tech}</p>
+        <button
+          onClick={() => setModalData(project)}
+          className="mt-3 text-sm text-red-500 hover:underline"
+        >
+          View Details
+        </button>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Modal */}
       <AnimatePresence>
