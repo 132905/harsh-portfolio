@@ -72,7 +72,7 @@ export default function PortfolioHome() {
         </motion.p>
         <motion.p className="mt-6 max-w-2xl text-gray-400"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.8 }}>
-          I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning...
+          I'm a passionate and self-driven technologist exploring the world of Artificial Intelligence and Machine Learning. With a solid foundation in Python and hands-on experience in various tools, I aim to build intelligent solutions that create impact. I enjoy translating complex problems into clean, scalable code and continuously strive to grow through new challenges.
         </motion.p>
 
         {/* Scroll Buttons */}
