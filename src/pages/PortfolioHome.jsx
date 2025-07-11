@@ -68,7 +68,7 @@ export default function PortfolioHome() {
         </motion.h1>
         <motion.p className="text-xl md:text-2xl text-red-500"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }}>
-          AI & ML Enthusiast | Python Developer | Creative Coder
+          AI & ML Enthusiast | Exploring Intelligent Systems | Passionate About Learning Through Data
         </motion.p>
         <motion.p className="mt-6 max-w-2xl text-gray-400"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.8 }}>
@@ -94,7 +94,7 @@ export default function PortfolioHome() {
           <a href="https://linkedin.com/in/harsh-malashetti/" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full">
             <Linkedin className="h-5 w-5 text-white" />
           </a>
-          <a href="/Harsh_Malashetti_DS.pdf" download className="p-2 bg-gray-800 rounded-full">
+          <a href="/Harsh_Malashetti.pdf" download className="p-2 bg-gray-800 rounded-full">
             <Download className="h-5 w-5 text-white" />
           </a>
         </div>
